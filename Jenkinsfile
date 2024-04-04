@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Deployment'){
 			steps{
-				deploy adapters: [ tomcat9(url: 'https://54.196.210.94:8080/', credentialsId: 'my-cred')], war:'target/*.war'
+				deploy adapters: [ tomcat9(url: 'https://54.196.210.94:8080/', credentialsId: 'my-cred')], war:'**/*.war'
 			}
 		}
     }
