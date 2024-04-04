@@ -4,6 +4,6 @@
 	</head>
 	<body>
 		<h2 style="background: blue;text-align: center;color: white;">AVD Group</h2>
-		<p>Virat kohli is my everything </p>
+		<p>Virat kohli is my fav one</p>
 	</body>
 </html>
