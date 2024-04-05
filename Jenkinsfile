@@ -1,17 +1,12 @@
-pipeline{
-    agent { label 'slave-node || slavenode-2' }
-    stages {
-        stage ('checkout code'){
-            steps {
-                git branch: 'main', url: 'https://github.com/technicalsoumya/java-web-app.git'
-            }
-        }
-        stage ('build code'){
-            steps{
-                sh '/opt/maven/bin/mvn clean package'
-            }
-        }
+node{
+    stage ('checkout code') {
+        git branch:'main', url:'https://github.com/technicalsoumya/java-web-app.git'
+    }
+    stage ('build Code') {
+        sh '/opt/maven/bin/mvn clean package'
+    }
+    stage ('deploy to tomcat') {
+        deploy adapters:[tomcat9(url:'', credentialsId:'tomcat-cred')], war:'**/*.war'
 
-    
     }
 }
