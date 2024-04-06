@@ -1,5 +1,9 @@
 pipeline {
-    agent any {
+    agent {
+        node {
+            label 'slave-node'
+        }
+    }
         stages {
             stage ('checkout code') {
                 steps {
@@ -12,5 +16,5 @@ pipeline {
                 }
             }
         }
-    }
+    
 }
