@@ -1,5 +1,9 @@
 pipeline {
-    agent { label 'jenkin-slave-node-1  || jenkin-slave-node-2 '}
+    agent {
+        node{
+          label 'jenkins-slave-node-1  '
+        }
+    }
         stages {
             stage ('checkout code') {
                 steps {
