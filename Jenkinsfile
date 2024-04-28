@@ -1,29 +1,24 @@
 pipeline {
     agent {
         node {
-            label 'jenkins-slave-node'
+            label "jenkins-slave-node"
         }
-    }
-    environment {
-        PATH = "/opt/maven/bin:$PATH"
     }
     stages {
-        stage("checkout code"){
+        stage ('CheckOut Code') {
             steps {
-                echo "----------- checkout started ----------"
+                echo "------Check_Out_Started------"
                 git branch: "main" , url: "https://github.com/technicalsoumya/java-web-app.git"
-                echo "----------- checkout completed ----------"
+                echo "--------Check_Out_End--------"
             }
         }
-   }
-   stages {
-       stage( "build code"){
-           steps {
-               echo " ---------build started--------"
-               sh "mvn clean package -Dmaven.test.skip= true"
-               echo " ---------build completed-------" 
-        }
-      }
-   }
+        stage ('Build Code') {
+            steps {
+                echo "Build_started_"
+                sh "/opt/maven/bin/mvn clean package "
+                echo "-------Build_End-----------"
+            }
+        }
 
+    }
 }
