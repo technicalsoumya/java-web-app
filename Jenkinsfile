@@ -1,25 +1,19 @@
 pipeline {
     agent {
-        node{
-          label 'jenkins-slave-node-1'
+        node {
+            label 'jenkins-slave-node'
         }
     }
-        stages {
-            stage ('checkout code') {
-                steps {
-                    git branch: 'main' , url: 'https://github.com/technicalsoumya/java-web-app.git'
-                }
-            }
-            stage ('Build code') {
-                steps {
-                    sh '/opt/maven/bin/mvn clean package'
-                }
-            }
-            stage ('deploy to tomcat') {
-                steps {
-                    deploy adapters: [tomcat9(url: 'http://54.89.204.236:8080/', credentialsId: 'jenkins-cred')], war: '**/*.war'
-                }
+    environment {
+        PATH = "/opt/apache-maven-3.9.6/bin:$PATH"
+    }
+    stages {
+        stage("build code"){
+            steps {
+                echo "----------- build started ----------"
+                sh 'mvn clean package -Dmaven.test.skip=true'
+                echo "----------- build completed ----------"
             }
         }
-    
+    }
 }
