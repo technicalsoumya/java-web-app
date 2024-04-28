@@ -11,7 +11,7 @@ pipeline {
         stage("checkout code"){
             steps {
                 echo "----------- checkout started ----------"
-                sh 'mvn clean package -Dmaven.test.skip=true'
+                git branch: "main" , url: "https://github.com/technicalsoumya/java-web-app.git"
                 echo "----------- checkout completed ----------"
             }
         }
@@ -21,7 +21,7 @@ pipeline {
         steps {
             echo " ---------build started--------"
             sh "mvn clean package -Dmaven.test.skip= true"
-            echo " ---------build completed-------"
+            echo " ---------build completed-------" 
         }
       }
    }
