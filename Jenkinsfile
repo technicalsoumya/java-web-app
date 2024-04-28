@@ -5,15 +5,25 @@ pipeline {
         }
     }
     environment {
-        PATH = "/opt/apache-maven-3.9.6/bin:$PATH"
+        PATH = "/opt/maven/bin:$PATH"
     }
     stages {
-        stage("build code"){
+        stage("checkout code"){
             steps {
-                echo "----------- build started ----------"
+                echo "----------- checkout started ----------"
                 sh 'mvn clean package -Dmaven.test.skip=true'
-                echo "----------- build completed ----------"
+                echo "----------- checkout completed ----------"
             }
         }
-    }
+   }
+   stages {
+      stage ( "build code"){
+        steps {
+            echo " ---------build started--------"
+            sh "mvn clean package -Dmaven.test.skip= true"
+            echo " ---------build completed-------"
+        }
+      }
+   }
+
 }
