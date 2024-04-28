@@ -17,11 +17,11 @@ pipeline {
         }
    }
    stages {
-      stage ( "build code"){
-        steps {
-            echo " ---------build started--------"
-            sh "mvn clean package -Dmaven.test.skip= true"
-            echo " ---------build completed-------" 
+       stage( "build code"){
+           steps {
+               echo " ---------build started--------"
+               sh "mvn clean package -Dmaven.test.skip= true"
+               echo " ---------build completed-------" 
         }
       }
    }
