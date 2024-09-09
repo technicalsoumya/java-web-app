@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Soumya panda Hotel</title>
+		<title>Soumya panda Hospital</title>
 	</head>
 	<body>
 		<h2 style="background: blue;text-align: center;color: white;">AVD Group</h2>
