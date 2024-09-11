@@ -1,10 +1,10 @@
 <html>
 	<head>
-		<title>Soumya panda Hospital</title>
+		<title>Prasannajit Sukla</title>
 	</head>
 	<body>
 		<h2 style="background: blue;text-align: center;color: white;">AVD Group</h2>
-		<p>welcome seema to this beautiful hotel</p>
+		<p>welcome everyone to my first website</p>
 	</body>
 </html>
 
